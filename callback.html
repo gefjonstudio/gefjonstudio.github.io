@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Connected — Gefjon Studio</title><link rel="icon" href="icon.png">
+<style>body{margin:0;background:#0B1020;color:#F5F3EE;font:17px/1.6 -apple-system,BlinkMacSystemFont,Inter,Helvetica,Arial,sans-serif;display:flex;min-height:100vh;align-items:center;justify-content:center;text-align:center}img{width:96px;border-radius:22px}code{display:block;margin-top:14px;word-break:break-all;color:#F2C66D;font-size:13px}</style></head>
+<body><div><img src="icon.png" alt=""><h1>Gefjon Studio publisher</h1>
+<p id="msg">Finishing connection…</p><code id="c"></code></div>
+<script>
+const q=new URLSearchParams(location.search);
+const code=q.get('code'), err=q.get('error')||q.get('error_description');
+document.getElementById('msg').textContent = code ? 'Connected. You can close this page.' : (err ? 'Connection failed: '+err : 'This page completes sign-in for the Gefjon Studio publishing tool.');
+if(code){document.getElementById('c').textContent='code received';}
+</script></body></html>
