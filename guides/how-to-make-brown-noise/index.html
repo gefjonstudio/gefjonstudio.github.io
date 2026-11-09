@@ -1,0 +1,103 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to Make Brown Noise: 5 Free Ways, Step by Step</title><meta name="description" content="How to make brown noise on iPhone, a computer or with a fan: 5 free ways with exact settings, file sizes and what the research does and doesn&#x27;t show."><link rel="canonical" href="https://gefjonstudio.com/guides/how-to-make-brown-noise/">
+<meta name="robots" content="index,follow,max-image-preview:large"><meta name="theme-color" content="#1A140C">
+<meta property="og:type" content="article"><meta property="og:title" content="How to Make Brown Noise: 5 Free Ways, Step by Step"><meta property="og:description" content="How to make brown noise on iPhone, a computer or with a fan: 5 free ways with exact settings, file sizes and what the research does and doesn&#x27;t show.">
+<meta property="og:url" content="https://gefjonstudio.com/guides/how-to-make-brown-noise/"><meta property="og:image" content="https://gefjonstudio.com/icon.png"><meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/icon.png"><link rel="apple-touch-icon" href="/icon.png">
+<link rel="preload" href="/assets/fonts/anybody.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/shop.css?v=5"><script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "headline": "How to Make Brown Noise: 5 Free Ways, Step by Step", "description": "How to make brown noise on iPhone, a computer or with a fan: 5 free ways with exact settings, file sizes and what the research does and doesn't show.", "datePublished": "2026-11-09", "dateModified": "2026-11-09", "mainEntityOfPage": "https://gefjonstudio.com/guides/how-to-make-brown-noise/", "image": "https://gefjonstudio.com/sound-sleep/icon.png", "author": {"@type": "Organization", "name": "Gefjon Studio", "url": "https://gefjonstudio.com/"}, "publisher": {"@type": "Organization", "name": "Gefjon Studio", "logo": {"@type": "ImageObject", "url": "https://gefjonstudio.com/icon.png"}}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gefjonstudio.com/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://gefjonstudio.com/guides/"}, {"@type": "ListItem", "position": 3, "name": "How to Make Brown Noise: 5 Free Ways, Step by Step", "item": "https://gefjonstudio.com/guides/how-to-make-brown-noise/"}]}]}</script></head><body><a class="skip" href="#main">Skip to content</a><header class="sign"><a class="mark" href="/"><img src="/icon.png" alt="" width="38" height="38"><span>Gefjon Studio</span></a><nav aria-label="Main"><a href="/#crate">Apps</a><a href="/guides/" aria-current="page">Guides</a></nav></header><main id="main" class="read"><nav class="crumbs" aria-label="Breadcrumb"><a href="/">Gefjon Studio</a> / <a href="/guides/">Guides</a></nav>
+<article><h1>How to Make Brown Noise: 5 Free Ways With Exact Settings</h1><div class="meta">Updated November 9, 2026 &middot; Gefjon Studio</div>
+<nav class="toc" aria-label="In this guide"><ol><li><a href="#the-quick-answer">The quick answer</a></li><li><a href="#what-brown-noise-actually-is">What brown noise actually is</a></li><li><a href="#1-use-a-noise-app-on-your-phone-30-seconds">1. Use a noise app on your phone (30 seconds)</a></li><li><a href="#2-generate-a-file-in-audacity-free-mac-and-windows">2. Generate a file in Audacity (free, Mac and Windows)</a></li><li><a href="#3-make-it-with-one-line-of-ffmpeg">3. Make it with one line of ffmpeg</a></li><li><a href="#4-use-a-free-web-generator-or-a-long-video">4. Use a free web generator or a long video</a></li><li><a href="#5-make-it-with-a-fan-no-tech">5. Make it with a fan (no tech)</a></li><li><a href="#how-to-set-the-volume">How to set the volume</a></li><li><a href="#does-brown-noise-help-you-sleep">Does brown noise help you sleep?</a></li><li><a href="#safety-and-when-to-stop">Safety and when to stop</a></li><li><a href="#frequently-asked-questions">Frequently asked questions</a></li></ol></nav>
+<p>If you want to know how to make brown noise, the quickest route is a free noise generator on your phone: pick "brown", set a timer, and you're done in under 1 minute. If you'd rather build it yourself, one line of ffmpeg or 4 clicks in Audacity gives you a file of any length, and a plain box fan gets surprisingly close with no tech at all.</p>
+<p>Below are 5 ways, from the 30-second one to the do-it-yourself one, with worked numbers for file sizes and volume, plus an honest look at what brown noise can and can't do for sleep.</p>
+<h2 id="the-quick-answer">The quick answer</h2>
+<ul>
+<li><strong>Fastest (30 seconds):</strong> open a noise app on your phone, choose brown noise, set an all-night or 60-minute timer.</li>
+<li><strong>Free on a computer:</strong> Audacity, Generate &gt; Noise &gt; Brownian, amplitude 0.3, duration 10 minutes.</li>
+<li><strong>One line:</strong> `ffmpeg -f lavfi -i "anoisesrc=color=brown:duration=600" brown.wav`</li>
+<li><strong>No tech:</strong> a box fan or air purifier on low is close to brown noise, because the motor and airflow are mostly low rumble.</li>
+<li><strong>Volume:</strong> about 40 to 50 decibels at your pillow, roughly light rain. Louder isn't better.</li>
+</ul>
+<h2 id="what-brown-noise-actually-is">What brown noise actually is</h2>
+<p>Noise "colours" describe how the energy is spread across pitch.</p>
+<ul>
+<li><strong>White noise:</strong> the same energy at every frequency. Bright, like a hiss or static.</li>
+<li><strong>Pink noise:</strong> energy drops 3 decibels every time the pitch doubles (every octave). Softer, like steady rain.</li>
+<li><strong>Brown noise:</strong> energy drops 6 decibels every octave. Deep, like a distant waterfall or a plane cabin.</li>
+</ul>
+<p><strong>Worked example:</strong> take brown noise at 100 Hz as your starting level. By 200 Hz it's 6 decibels quieter, by 400 Hz it's 12 quieter, and by 1,600 Hz (4 octaves up) it's 24 decibels quieter. White noise would still be at full strength at 1,600 Hz. That's why brown noise sounds like a rumble and white noise sounds like a hiss.</p>
+<p>The name isn't about colour at all. It comes from Brownian motion, because brown noise is what you get when each new sample is the previous one plus a small random step. It's sometimes called red noise too.</p>
+<h2 id="1-use-a-noise-app-on-your-phone-30-seconds">1. Use a noise app on your phone (30 seconds)</h2>
+<p>This is the way most people should start, because it plays with the screen locked, loops without a click and has a timer.</p>
+<ol>
+<li>Install a noise app that works offline. Avoid ones that stream from the internet, since they stop when your signal drops.</li>
+<li>Choose brown noise (some call a deeper version "deep brown").</li>
+<li>Set a timer. 60 minutes helps you drop off, and "all night" keeps the 3am sounds covered.</li>
+<li>Raise the volume until the room's sudden sounds stop poking through, then stop.</li>
+</ol>
+<aside class="appbox"><div class="sleeve"><img src="/sound-sleep/icon.png" alt="Sound Sleep app icon"><span class="sticker" aria-hidden="true"><small>PAY ONCE</small><b>$9.99</b></span></div><div><b>Sound Sleep</b><p>250+ sleep sounds, white/pink/brown noise, an 8-sound mixer and a sleep timer. Works offline. No subscription, no ads, no account, no data collected. <strong>$9.99 once.</strong></p><a class="btn" href="https://apps.apple.com/us/app/sound-sleep-white-noise-rain/id6827409629">Get it on the App Store</a><span class="small"><a href="/sound-sleep/">Learn more</a></span></div></aside>
+<p><a href="/sound-sleep/">Sound Sleep</a> includes white, pink and brown noise in its 27 free sounds, and the full app has 10 noise colours, including a deeper brown and grey, blue and violet. Each sound has its own volume and Warmth control, you can layer up to 8 sounds, and it plays offline with the screen locked. Pay once, $9.99 to unlock everything. No subscription, no ads, no account, no data collected.</p>
+<h2 id="2-generate-a-file-in-audacity-free-mac-and-windows">2. Generate a file in Audacity (free, Mac and Windows)</h2>
+<p>Audacity is free open-source audio software. It can write a brown noise file that never changes and never needs the internet.</p>
+<ol>
+<li>Open Audacity and go to <strong>Generate &gt; Noise</strong>.</li>
+<li>Set the type to <strong>Brownian</strong>.</li>
+<li>Set the amplitude to <strong>0.3</strong>. At 1.0 it's very loud and can clip.</li>
+<li>Set the duration to <strong>10 minutes</strong> (or whatever you want) and click OK.</li>
+<li>Go to <strong>File &gt; Export</strong> and choose WAV or MP3.</li>
+</ol>
+<p><strong>Worked example:</strong> a stereo WAV at 44.1 kHz and 16-bit uses about 635 MB per hour, so 8 hours would be about 5 GB. The same hour as a 128 kbps MP3 is about 58 MB. For a phone, export MP3.</p>
+<h2 id="3-make-it-with-one-line-of-ffmpeg">3. Make it with one line of ffmpeg</h2>
+<p>If you're comfortable in Terminal, ffmpeg can generate brown noise directly. I ran a 10-second version of this to check it works:</p>
+<p>`ffmpeg -f lavfi -i "anoisesrc=color=brown:duration=3600:sample_rate=44100:amplitude=0.3" -ac 2 -b:a 128k brown-1h.mp3`</p>
+<p>It writes a 1-hour stereo MP3. Change `duration=3600` to the number of seconds you want, and lower `amplitude` for a quieter file. Swap `color=brown` for `color=pink` or `color=white` to compare the three.</p>
+<p>On a Mac you can install ffmpeg with `brew install ffmpeg`. Then send the file to your phone with AirDrop.</p>
+<h2 id="4-use-a-free-web-generator-or-a-long-video">4. Use a free web generator or a long video</h2>
+<p>Many free websites generate brown noise in your browser, and video sites host loops that run for 8 to 10 hours. They're fine for a test night.</p>
+<p>The catches:</p>
+<ul>
+<li>They need a signal, so they can stop when Wi-Fi drops.</li>
+<li>Some lock up or pause when the phone screen turns off.</li>
+<li>Videos can be interrupted by ads, and a loud one at 2am is the opposite of what you wanted.</li>
+<li>Short browser loops (often 5 minutes or less) repeat. Random noise has no pattern, so you won't notice, but a badly joined loop can click.</li>
+</ul>
+<h2 id="5-make-it-with-a-fan-no-tech">5. Make it with a fan (no tech)</h2>
+<p>A box fan, tower fan or air purifier on low is a physical version of the same idea. The motor hum and moving air are weighted toward the low end, so they sit nearer brown than white.</p>
+<p><strong>Worked example:</strong> a typical bedroom fan on low measures around 40 to 50 decibels at 1 metre. That's already inside the range most people use for masking. It costs nothing to try tonight, and it also feels cooler in summer. The downside is a draught on your face and a motor that can change pitch.</p>
+<h2 id="how-to-set-the-volume">How to set the volume</h2>
+<p>Louder doesn't help. The goal is to lift the room's quiet baseline just enough that a sudden bang is a smaller jump.</p>
+<ul>
+<li>Start at about 40 decibels at your pillow, then raise it in small steps.</li>
+<li>Stop once door slams and footsteps stop standing out. If you can't hear the noise you wanted to cover, it's too loud.</li>
+<li>Keep the speaker 1 to 2 metres away rather than next to your ear. Don't run it at maximum all night through earbuds.</li>
+<li>Deep sound travels. Small phone speakers can't reproduce much below 150 Hz, so brown noise can sound thin on them. A larger speaker, or the phone resting on a hard surface, helps.</li>
+</ul>
+<p>For a room with a real noise problem, see our guide on <a href="/guides/how-to-sleep-with-noise/">how to sleep with noise around you</a>, which has the decibel maths for traffic and thin walls.</p>
+<h2 id="does-brown-noise-help-you-sleep">Does brown noise help you sleep?</h2>
+<p>Honestly, it might, and it might not.</p>
+<ul>
+<li><strong>The best review we have:</strong> a 2021 systematic review in <em>Sleep Medicine Reviews</em> looked at 38 studies of continuous noise and sleep. It rated the quality of evidence that noise improves sleep as very low, with results ranging from better sleep to worse sleep.</li>
+<li><strong>Brown noise specifically:</strong> it has barely been tested on its own. No good trial has compared brown, pink and white head to head, so claims that brown is "best" are mostly opinion.</li>
+<li><strong>What does make sense:</strong> a steady sound makes sudden sounds less jarring. That's why light sleepers in noisy places tend to report the most benefit.</li>
+</ul>
+<p>So treat it like an experiment. Use it for 7 nights, write down how many times you woke, and compare with the 7 nights before. If the number doesn't drop from, say, 3 wake-ups to 2, try pink noise or a fan instead.</p>
+<h2 id="safety-and-when-to-stop">Safety and when to stop</h2>
+<ul>
+<li>Keep it low. Constant loud sound for 8 hours isn't harmless, and the review above warned that continuous noise may also affect sleep and hearing negatively.</li>
+<li>For babies, keep any sound machine well away from the cot and quiet. Ask your paediatrician about the level.</li>
+<li>If the noise makes ringing in your ears worse, stop. If tinnitus is the main issue, read <a href="/guides/how-to-sleep-with-tinnitus/">how to sleep with tinnitus</a>.</li>
+<li>If you wake often with no clear cause, our guide on <a href="/guides/how-to-stop-waking-up-at-3am/">how to stop waking up at 3am</a> covers other causes.</li>
+<li>See a doctor if you're sleepy all day after 7 to 8 hours in bed, or you wake gasping. No sound will fix those.</li>
+</ul>
+<h2 id="frequently-asked-questions">Frequently asked questions</h2>
+<h3>How do I make brown noise at home?</h3>
+<p>The easiest way is a noise app on your phone. If you want a file, generate one in Audacity (Generate &gt; Noise &gt; Brownian) or with ffmpeg, then play it on a loop. A box fan on low is a no-tech alternative.</p>
+<h3>What is the difference between brown noise and white noise?</h3>
+<p>White noise has equal energy at every frequency, so it sounds bright and hissy. Brown noise loses 6 decibels every octave, so it sounds deep and rumbly. Brown is better at covering low sounds like traffic and bass. White covers voices better.</p>
+<h3>Is brown noise good for sleep?</h3>
+<p>Some people sleep better with it, mostly light sleepers in noisy rooms. The research is thin: a 2021 review of 38 studies rated the evidence very low. Test it for 7 nights at a low volume.</p>
+<h3>Can I play brown noise all night?</h3>
+<p>Many people do. Use a low volume (around 40 to 50 decibels at the pillow), keep the speaker a metre or more away, and stop if you notice ear discomfort or ringing.</p>
+</article>
+<h2>Keep reading</h2><div class="related"><a href="/guides/how-to-sleep-with-noise/">How to Sleep With Noise Around You: 8 Fixes That Work</a><a href="/guides/how-to-sleep-with-tinnitus/">How to Sleep With Tinnitus: 7 Fixes for Quieter Nights</a><a href="/guides/how-to-block-out-snoring/">How to Block Out Snoring: 7 Fixes That Work Tonight</a><a href="/guides/how-to-sign-a-document-on-iphone/">How to Sign a Document on iPhone: 5 Ways That Work</a></div>
+</main><footer class="foot"><div><p class="say">Pay once. It’s yours.</p><p>Gefjon Studio is a small independent app shop. No subscriptions, no accounts, nothing tracked. Not even on this website.</p></div><nav aria-label="Footer"><a href="/#crate">Apps</a><a href="/guides/">Guides</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="mailto:gefjonstudio@gmail.com">Contact</a><a href="https://www.tiktok.com/@gefjonstudio">TikTok</a><a href="https://www.instagram.com/gefjonstudio">Instagram</a><a href="https://www.youtube.com/@gefjonstudio">YouTube</a><span>© 2026 Gefjon Studio</span></nav></footer></body></html>
