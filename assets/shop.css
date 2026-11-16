@@ -195,7 +195,8 @@ img{max-width:100%;display:block}
 .read .meta{color:var(--ink-2);font-size:15px}
 .read h2{font:900 clamp(1.5rem,3.6vw,2rem)/1.1 var(--display);font-stretch:112%;letter-spacing:-.02em;margin:56px 0 12px;text-wrap:balance}
 .read h3{font:800 1.2rem/1.25 var(--display);font-stretch:106%;margin:34px 0 6px}
-.read p,.read li{font-size:18px;line-height:1.7}
+.read p,.read li{font-size:18px;line-height:1.7;overflow-wrap:anywhere}
+.read code{font:600 .86em/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--wall);padding:.1em .35em;border-radius:3px;overflow-wrap:anywhere}
 .read ul,.read ol{padding-left:24px}.read li{margin:6px 0}
 .read li::marker{color:var(--sticker);font-weight:700}
 .read a{text-decoration-color:var(--wall-2)}
