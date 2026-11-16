@@ -28,7 +28,7 @@
         : `<a class="btn primary" href="${d.page}">See ${d.name} ${ICON_NEXT}</a>`;
       acts.querySelector('.secondary').outerHTML = d.store
         ? `<a class="btn ghost secondary" href="${d.page}">What's inside</a>`
-        : `<span class="soonnote secondary">In review at Apple. Out soon.</span>`;
+        : `<span class="soonnote secondary">${d.note || 'Coming soon to the App Store.'}</span>`;
       const needle = acts.querySelector('.needle');
       needle.hidden = !d.sample;
       needle.dataset.sample = d.sample || '';
